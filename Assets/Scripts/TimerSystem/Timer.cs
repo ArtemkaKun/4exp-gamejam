@@ -1,32 +1,42 @@
 using System;
 using Cysharp.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+namespace TimerSystem
 {
-	public event Action<int> OnLeftTimeChanged;
-	
-	[field: SerializeField]
-	private int TimeInSeconds { get; set; }
-	[field: SerializeField]
-	private int StepInSeconds { get; set; }
-	
-	public void StartTimer ()
+	public class Timer : MonoBehaviour
 	{
-		TimerProcess().Forget();
-	}
+		[field: SerializeField]
+		private int TimeInSeconds { get; set; }
+		[field: SerializeField]
+		private int StepInSeconds { get; set; }
+		[field: SerializeField]
+		private TimerView View { get; set; }
 
-	private async UniTaskVoid TimerProcess ()
-	{
-		int leftTime = TimeInSeconds;
-
-		while (leftTime > 0)
+		[Button]
+		public void StartTimer ()
 		{
-			OnLeftTimeChanged?.Invoke(leftTime);
-			await UniTask.Delay(TimeSpan.FromSeconds(StepInSeconds));
-			leftTime -= StepInSeconds;
+			TimerProcess().Forget();
 		}
-		
-		OnLeftTimeChanged?.Invoke(0);
+
+		private void Awake ()
+		{
+			View.SetLeftTime(TimeSpan.FromSeconds(TimeInSeconds));
+		}
+
+		private async UniTaskVoid TimerProcess ()
+		{
+			int leftTime = TimeInSeconds;
+
+			while (leftTime > 0)
+			{
+				await UniTask.Delay(TimeSpan.FromSeconds(StepInSeconds));
+				leftTime -= StepInSeconds;
+				View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+			}
+
+			View.SetLeftTime(TimeSpan.Zero);
+		}
 	}
 }
