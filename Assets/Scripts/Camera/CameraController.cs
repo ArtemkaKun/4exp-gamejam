@@ -11,6 +11,9 @@ public class CameraController : MonoBehaviour
     [field: SerializeField]
     private LayerMask InteractiveObjectsLayer { get; set; }
 
+    private RaycastHit CachedHit;
+    private InteractableObject CurrentInteractableObject;
+
     protected virtual void Update()
     {
         GetInteractiveObject();
@@ -18,16 +21,25 @@ public class CameraController : MonoBehaviour
 
     private void GetInteractiveObject()
     {
-        RaycastHit hit;
         Vector3 origin = Camera.main.transform.position;
         Vector3 direction = Camera.main.transform.forward;
 
-        if (Physics.Raycast(origin, direction, out hit, Distance))
+        if (Physics.Raycast(origin, direction, out CachedHit, Distance))
         {
-            if (hit.transform.gameObject.layer == (int)Mathf.Log(InteractiveObjectsLayer.value, 2)) ;
+            if (IsObjectInteractable(CachedHit) == true)
             {
-                Debug.Log("to ten objekt");
+                if (Input.GetKeyDown(KeyCode.Mouse0) == true)
+                {
+                    CurrentInteractableObject = CachedHit.transform.GetComponent<InteractableObject>();
+
+                    CurrentInteractableObject.OnInteract.Invoke();
+                }
             }
         }
+    }
+
+    private bool IsObjectInteractable(RaycastHit hit)
+    {
+        return hit.transform.gameObject.layer == (int)Mathf.Log(InteractiveObjectsLayer.value, 2);
     }
 }
