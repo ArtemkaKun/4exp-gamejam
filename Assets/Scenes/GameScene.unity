@@ -200,11 +200,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5839396031000521525, guid: 75430fe8f761eef49ad5dce35700675f,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8384235244395292621, guid: 75430fe8f761eef49ad5dce35700675f,
         type: 3}
       propertyPath: m_Name
