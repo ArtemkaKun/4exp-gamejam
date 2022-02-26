@@ -20,6 +20,8 @@ namespace InventorySystem
             Image itemImage = item.AddComponent<Image>();
             itemImage.sprite = inventoryObject.Icon;
             item.GetComponent<RectTransform>().SetParent(ItemsHolder.transform);
+            item.transform.localScale = new Vector3(1, 1, 1);
+            Instantiate(item);
             item.SetActive(true);
         }
     }
