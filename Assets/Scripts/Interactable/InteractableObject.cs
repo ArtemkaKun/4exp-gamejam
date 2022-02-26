@@ -16,8 +16,6 @@ public class InteractableObject : MonoBehaviour
     private List<GameObject> InteractableObjectsToSpawnOnInteract { get; set; }
     [field: SerializeField]
     private List<GameObject> InteractableObjectsToSpawnOnPresence { get; set; }
-	[field: SerializeField]
-	private InventoryManager Inventory { get; set; }
 
     protected virtual void OnEnable()
     {
@@ -34,7 +32,6 @@ public class InteractableObject : MonoBehaviour
     private void OnInteractEventHandler()
     {
         SpawnObjectsOnInteract();
-		TryAddToInventory();
         DestroyThisObject();
     }
 
@@ -48,24 +45,22 @@ public class InteractableObject : MonoBehaviour
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnInteract)
         {
-            interactable.SetActive(true);
-        }
-    }
-
-	private void TryAddToInventory ()
-	{
-		if (TryGetComponent(out InventoryObject inventoryObject))
-		{
-			Inventory.AddItem(inventoryObject);
+			if (interactable != null)
+			{
+				interactable.SetActive(true);
+			}
 		}
-	}
+    }
 
     private void SpawnObjectsOnPresence()
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnPresence)
         {
-            interactable.SetActive(true);
-        }
+			if (interactable != null)
+			{
+				interactable.SetActive(true);
+			}
+		}
     }
 
     private void DestroyThisObject()

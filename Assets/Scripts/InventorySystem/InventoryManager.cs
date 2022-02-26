@@ -3,29 +3,29 @@ using UnityEngine;
 
 namespace InventorySystem
 {
-	public class InventoryManager : MonoBehaviour
-	{
-		[field: SerializeField]
-		private InventoryView InventoryView { get; set; }
-		
-		private List<InventoryObject> Items { get; } = new List<InventoryObject>();
+    public class InventoryManager : MonoBehaviour
+    {
+        [field: SerializeField]
+        private InventoryView InventoryView { get; set; }
 
-		public void AddItem (InventoryObject item)
-		{
-			Items.Add(item);
-			InventoryView.UpdateInventory(Items);
-		}
-		
-		public void RemoveItem (InventoryObject item)
-		{
-			Items.Remove(item);
-			InventoryView.UpdateInventory(Items);
-		}
+        private List<InventoryObject> Items { get; } = new List<InventoryObject>();
 
-		public void RemoveAllItems ()
-		{
-			Items.Clear();
-			InventoryView.UpdateInventory(Items);
-		}
-	}
+        public void AddItem(InventoryObject item)
+        {
+            Items.Add(item);
+            InventoryView.AddInventoryItem(item);
+        }
+
+        public void RemoveItem(InventoryObject item)
+        {
+            Items.Remove(item);
+            InventoryView.UpdateInventory(Items);
+        }
+
+        public void RemoveAllItems()
+        {
+            Items.Clear();
+            InventoryView.UpdateInventory(Items);
+        }
+    }
 }
