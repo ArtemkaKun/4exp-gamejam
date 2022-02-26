@@ -26,7 +26,7 @@ namespace RoundsSystem
 			RoundsCounter += 1;
 		}
 
-		private void Awake ()
+		private void Start ()
 		{
 			Timer.OnTimerEnd += FinishRound;
 			StartRound();
