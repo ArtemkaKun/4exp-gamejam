@@ -41,8 +41,11 @@ public class CameraController : MonoBehaviour
                     Debug.Log(CachedHit.transform.gameObject.name);
                     CurrentInteractableObject = CachedHit.transform.GetComponent<Interactable>();
 
-                    CurrentInteractableObject.OnInteract.Invoke();
-                }
+					if (CurrentInteractableObject != null)
+					{
+						CurrentInteractableObject.OnInteract.Invoke();
+					}
+				}
             }
         }
     }
