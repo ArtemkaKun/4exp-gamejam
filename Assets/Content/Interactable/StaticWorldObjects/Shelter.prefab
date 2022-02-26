@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735ea150d723aad48804915ca06117f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IncreasePlayerLifeInSeconds>k__BackingField: 5
 --- !u!1001 &35614902387617505
 PrefabInstance:
   m_ObjectHideFlags: 0
