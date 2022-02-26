@@ -18,15 +18,7 @@ public class CameraController : MonoBehaviour
     {
         if (IsObjectInteractable(collider.gameObject.layer) == true)
         {
-            collider.GetComponent<InteractableObject>().PlayOpenAnimation(true);
-        }
-    }
-
-    protected virtual void OnTriggerExit(Collider collider)
-    {
-        if (IsObjectInteractable(collider.gameObject.layer) == true)
-        {
-            collider.GetComponent<InteractableObject>().PlayOpenAnimation(false);
+            collider.GetComponent<InteractableObject>().OnPresence.Invoke();
         }
     }
 
