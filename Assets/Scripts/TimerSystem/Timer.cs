@@ -7,7 +7,7 @@ namespace TimerSystem
 {
 	public class Timer : MonoBehaviour
 	{
-		public event Action OnTimerEnd;
+		public event Action<float> OnTimerEnd;
 
 		[field: SerializeField]
 		private int TimeInSeconds { get; set; }
@@ -59,7 +59,7 @@ namespace TimerSystem
 
 			View.SetLeftTime(TimeSpan.Zero);
 			View.SetYears(InitialNumberOfYears);
-			OnTimerEnd?.Invoke();
+			OnTimerEnd?.Invoke(CountYears(LeftTime));
 			View.ChangeTimerTextVisibility(false);
 		}
 
