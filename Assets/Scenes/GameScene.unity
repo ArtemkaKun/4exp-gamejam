@@ -651,6 +651,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2107742094}
     m_Modifications:
+    - target: {fileID: 1055954100333748387, guid: cefcaf0dc3c709845aea06f81920e72c,
+        type: 3}
+      propertyPath: <Inventory>k__BackingField
+      value: 
+      objectReference: {fileID: 761614237}
     - target: {fileID: 7776642604824338908, guid: cefcaf0dc3c709845aea06f81920e72c,
         type: 3}
       propertyPath: m_RootOrder
