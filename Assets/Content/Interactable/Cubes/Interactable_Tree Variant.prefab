@@ -77,10 +77,20 @@ PrefabInstance:
       propertyPath: <InteractableObjectsToSpawnOnInteract>k__BackingField.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3142250623124567325, guid: 2bffdbd2691027e49871a485bd558528,
+        type: 3}
+      propertyPath: <InteractableObjectsToSpawnOnPresence>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3142250623124567326, guid: 2bffdbd2691027e49871a485bd558528,
         type: 3}
       propertyPath: m_Name
       value: Interactable_Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142250623124567326, guid: 2bffdbd2691027e49871a485bd558528,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bffdbd2691027e49871a485bd558528, type: 3}
