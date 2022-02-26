@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     private LayerMask InteractiveObjectsLayer { get; set; }
 
     private RaycastHit CachedHit;
-    private InteractableObject CurrentInteractableObject;
+    private Interactable CurrentInteractableObject;
 
     protected virtual void OnTriggerEnter(Collider collider)
     {
@@ -38,9 +38,12 @@ public class CameraController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0) == true)
                 {
-                    CurrentInteractableObject = CachedHit.transform.GetComponent<InteractableObject>();
+                    CurrentInteractableObject = CachedHit.transform.GetComponent<Interactable>();
 
-                    CurrentInteractableObject.OnInteract.Invoke();
+                    if (CurrentInteractableObject != null)
+                    {
+                        CurrentInteractableObject.OnInteract.Invoke();
+                    }
                 }
             }
         }

@@ -4,18 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObject : Interactable
 {
-    [field: SerializeField]
-    public UnityEvent OnInteract { get; private set; }
     [field: SerializeField]
     public UnityEvent OnPresence { get; private set; }
     [field: SerializeField]
     private Animator Animator { get; set; }
     [field: SerializeField]
-    private List<GameObject> InteractableObjectsToSpawnOnInteract { get; set; }
-    [field: SerializeField]
     private List<GameObject> InteractableObjectsToSpawnOnPresence { get; set; }
+
+    private bool WasOnPresenceInvoked { get; set; }
 
     protected virtual void OnEnable()
     {
@@ -32,40 +30,28 @@ public class InteractableObject : MonoBehaviour
     private void OnInteractEventHandler()
     {
         SpawnObjectsOnInteract();
-        DestroyThisObject();
+        DisableThisObject();
     }
 
     private void OnPresenceEventHandler()
     {
-        PlayOpenAnimation();
-        SpawnObjectsOnPresence();
-    }
-
-    private void SpawnObjectsOnInteract()
-    {
-        foreach (GameObject interactable in InteractableObjectsToSpawnOnInteract)
+        if (WasOnPresenceInvoked == false)
         {
-			if (interactable != null)
-			{
-				interactable.SetActive(true);
-			}
-		}
+            PlayOpenAnimation();
+            SpawnObjectsOnPresence();
+            WasOnPresenceInvoked = true;
+        }
     }
 
     private void SpawnObjectsOnPresence()
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnPresence)
         {
-			if (interactable != null)
-			{
-				interactable.SetActive(true);
-			}
-		}
-    }
-
-    private void DestroyThisObject()
-    {
-        Destroy(gameObject);
+            if (interactable != null)
+            {
+                interactable.SetActive(true);
+            }
+        }
     }
 
     private void PlayOpenAnimation()

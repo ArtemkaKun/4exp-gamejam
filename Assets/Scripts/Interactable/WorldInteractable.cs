@@ -4,21 +4,28 @@ using UnityEngine;
 using UnityEngine.Events;
 using InventorySystem;
 using System.Linq;
+using HighlightPlus;
 
-public class WorldInteractable : MonoBehaviour
+public class WorldInteractable : Interactable
 {
-    [field: SerializeField]
-    public UnityEvent OnInteract { get; private set; }
-    [field: SerializeField]
-    private List<GameObject> InteractableObjectsToSpawnOnInteract { get; set; }
     [field: SerializeField]
     private List<string> RequiredItems { get; set; }
     [field: SerializeField]
     private InventoryManager Inventory { get; set; }
+    [field: SerializeField]
+    private HighlightEffect Highlight { get; set; }
 
     protected virtual void OnEnable()
     {
         OnInteract.AddListener(OnInteractEventHandler);
+    }
+
+    protected virtual void Update()
+    {
+        if (Highlight.highlighted == true)
+        {
+            Highlight.outlineColor = CheckPlayersHasRequiredItems() == true ? Color.green : Color.red;
+        }
     }
 
     protected virtual void OnDisable()
@@ -31,28 +38,14 @@ public class WorldInteractable : MonoBehaviour
         if (CheckPlayersHasRequiredItems() == true)
         {
             SpawnObjectsOnInteract();
-            DestroyThisObject();
+            DisableThisObject();
         }
-    }
-
-    private void SpawnObjectsOnInteract()
-    {
-        foreach (GameObject interactable in InteractableObjectsToSpawnOnInteract)
-        {
-            interactable.SetActive(true);
-        }
-    }
-
-    private void DestroyThisObject()
-    {
-        Destroy(gameObject);
     }
 
     private bool CheckPlayersHasRequiredItems()
     {
         foreach (string item in RequiredItems)
         {
-            //Debug.Log(Inventory.Items.Find(x => x.Name == item).name);
             if (Inventory.Items.Find(x => x.Name == item) == null)
             {
                 return false;
