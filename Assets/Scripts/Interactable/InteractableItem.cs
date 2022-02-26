@@ -7,12 +7,11 @@ public class InteractableItem : MonoBehaviour
 {
     [field: SerializeField]
     private InventoryManager Inventory { get; set; }
+    [field: SerializeField]
+    private InventoryObject InventoryObject { get; set; }
 
-    public void TryAddToInventory()
+    public void AddToInventory()
     {
-        if (TryGetComponent(out InventoryObject inventoryObject))
-        {
-            Inventory.AddItem(inventoryObject);
-        }
+        Inventory.AddItem(InventoryObject);
     }
 }
