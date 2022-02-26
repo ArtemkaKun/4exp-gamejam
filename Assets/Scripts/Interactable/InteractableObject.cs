@@ -4,16 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObject : Interactable
 {
-    [field: SerializeField]
-    public UnityEvent OnInteract { get; private set; }
     [field: SerializeField]
     public UnityEvent OnPresence { get; private set; }
     [field: SerializeField]
     private Animator Animator { get; set; }
-    [field: SerializeField]
-    private List<GameObject> InteractableObjectsToSpawnOnInteract { get; set; }
     [field: SerializeField]
     private List<GameObject> InteractableObjectsToSpawnOnPresence { get; set; }
 
@@ -32,7 +28,7 @@ public class InteractableObject : MonoBehaviour
     private void OnInteractEventHandler()
     {
         SpawnObjectsOnInteract();
-        DestroyThisObject();
+        DisableThisObject();
     }
 
     private void OnPresenceEventHandler()
@@ -41,31 +37,15 @@ public class InteractableObject : MonoBehaviour
         SpawnObjectsOnPresence();
     }
 
-    private void SpawnObjectsOnInteract()
-    {
-        foreach (GameObject interactable in InteractableObjectsToSpawnOnInteract)
-        {
-			if (interactable != null)
-			{
-				interactable.SetActive(true);
-			}
-		}
-    }
-
     private void SpawnObjectsOnPresence()
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnPresence)
         {
-			if (interactable != null)
-			{
-				interactable.SetActive(true);
-			}
-		}
-    }
-
-    private void DestroyThisObject()
-    {
-        Destroy(gameObject);
+            if (interactable != null)
+            {
+                interactable.SetActive(true);
+            }
+        }
     }
 
     private void PlayOpenAnimation()

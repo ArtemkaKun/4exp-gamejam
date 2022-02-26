@@ -6,9 +6,9 @@ namespace InventorySystem
     public class InventoryManager : MonoBehaviour
     {
         [field: SerializeField]
-        private InventoryView InventoryView { get; set; }
-
         public List<InventoryObject> Items { get; private set; } = new List<InventoryObject>();
+        [field: SerializeField]
+        private InventoryView InventoryView { get; set; }
 
         public void AddItem(InventoryObject item)
         {
