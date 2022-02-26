@@ -14,6 +14,8 @@ public class Interactable : MonoBehaviour
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnInteract)
         {
+	        if (interactable == null) continue;
+
             interactable.SetActive(true);
         }
     }

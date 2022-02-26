@@ -5,13 +5,11 @@ using InventorySystem;
 
 public class InteractableItem : MonoBehaviour
 {
-    [field: SerializeField]
-    private InventoryManager Inventory { get; set; }
-    [field: SerializeField]
+	[field: SerializeField]
     private InventoryObject InventoryObject { get; set; }
 
     public void AddToInventory()
     {
-        Inventory.AddItem(InventoryObject);
+	    InventoryManager.Instance.AddItem(InventoryObject);
     }
 }

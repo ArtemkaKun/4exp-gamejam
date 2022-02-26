@@ -5,6 +5,22 @@ namespace InventorySystem
 {
     public class InventoryManager : MonoBehaviour
     {
+	    public static InventoryManager Instance
+	    {
+		    get
+		    {
+			    if (instance == null)
+			    {
+				    instance = GameObject.FindObjectOfType<InventoryManager>();
+			    }
+
+			    return instance;
+		    }
+	    }
+
+	    private static InventoryManager instance;
+
+
         [field: SerializeField]
         public List<InventoryObject> Items { get; private set; } = new List<InventoryObject>();
         [field: SerializeField]

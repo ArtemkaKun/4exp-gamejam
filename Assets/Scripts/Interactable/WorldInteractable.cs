@@ -11,8 +11,6 @@ public class WorldInteractable : Interactable
     [field: SerializeField]
     private List<string> RequiredItems { get; set; }
     [field: SerializeField]
-    private InventoryManager Inventory { get; set; }
-    [field: SerializeField]
     private HighlightEffect Highlight { get; set; }
 
     protected virtual void OnEnable()
@@ -46,7 +44,7 @@ public class WorldInteractable : Interactable
     {
         foreach (string item in RequiredItems)
         {
-            if (Inventory.Items.Find(x => x.Name == item) == null)
+            if (InventoryManager.Instance.Items.Find(x => x.Name == item) == null)
             {
                 return false;
             }
