@@ -14,6 +14,8 @@ namespace RoundsSystem
 		private GameObject RoundEndedCanvas { get; set; }
 		[field: SerializeField]
 		private InventoryManager Inventory { get; set; }
+		[field: SerializeField]
+		private CharactersHistoryController CharactersHistory { get; set; }
 
 		private uint RoundsCounter { get; set; }
 
@@ -26,18 +28,18 @@ namespace RoundsSystem
 			RoundsCounter += 1;
 		}
 
-		private void Awake ()
+		private void Start ()
 		{
 			Timer.OnTimerEnd += FinishRound;
 			StartRound();
 		}
 
-		private void FinishRound ()
+		private void FinishRound (float numberOfYears)
 		{
 			Cursor.lockState = CursorLockMode.None;
 			RoundEndedCanvas.SetActive(true);
 			PlayerLifeManager.ChangePlayerActiveStatus(false);
-			Inventory.RemoveAllItems();
+			CharactersHistory.AddNewCharacter(numberOfYears);
 		}
 	}
 }
