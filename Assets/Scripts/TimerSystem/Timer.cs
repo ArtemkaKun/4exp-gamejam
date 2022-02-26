@@ -7,6 +7,8 @@ namespace TimerSystem
 {
 	public class Timer : MonoBehaviour
 	{
+		public event Action OnTimerEnd;
+		
 		[field: SerializeField]
 		private int TimeInSeconds { get; set; }
 		[field: SerializeField]
@@ -28,6 +30,8 @@ namespace TimerSystem
 		private async UniTaskVoid TimerProcess ()
 		{
 			int leftTime = TimeInSeconds;
+			View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+			View.ChangeTimerTextVisibility(true);
 
 			while (leftTime > 0)
 			{
@@ -37,6 +41,8 @@ namespace TimerSystem
 			}
 
 			View.SetLeftTime(TimeSpan.Zero);
+			OnTimerEnd?.Invoke();
+			View.ChangeTimerTextVisibility(false);
 		}
 	}
 }
