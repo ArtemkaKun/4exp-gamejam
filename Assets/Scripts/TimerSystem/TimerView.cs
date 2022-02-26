@@ -10,7 +10,11 @@ namespace TimerSystem
 		[field: SerializeField]
 		private TMP_Text LeftTextElement { get; set; }
 		[field: SerializeField]
+		private TMP_Text YearsTextElement { get; set; }
+		[field: SerializeField]
 		private GameObject TimerObject { get; set; }
+		[field: SerializeField]
+		private GameObject YearsObject { get; set; }
 		[field: SerializeField]
 		private TMP_Text AdditionalTimeTextElement { get; set; }
 		[field: SerializeField]
@@ -26,6 +30,12 @@ namespace TimerSystem
 		public void ChangeTimerTextVisibility (bool isVisible)
 		{
 			TimerObject.SetActive(isVisible);
+			YearsObject.SetActive(isVisible);
+		}
+
+		public void SetYears (float years)
+		{
+			YearsTextElement.text = $"Age: {years}";
 		}
 
 		public async UniTaskVoid ShowAdditionalTimeText (int additionalTimeValue)

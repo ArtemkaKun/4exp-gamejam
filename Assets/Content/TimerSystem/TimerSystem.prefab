@@ -158,6 +158,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 824523769373865012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3749440691717693025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4573963485861341781, guid: c8c2b52e5cad4dd469495141934384cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 824523769373865012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4694359501831334510 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5356183928951004762, guid: c8c2b52e5cad4dd469495141934384cf,
@@ -191,6 +203,12 @@ GameObject:
 --- !u!224 &6506287634611385889 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5853467708508733973, guid: c8c2b52e5cad4dd469495141934384cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 824523769373865012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9026703447306226881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8517433939254474997, guid: c8c2b52e5cad4dd469495141934384cf,
     type: 3}
   m_PrefabInstance: {fileID: 824523769373865012}
   m_PrefabAsset: {fileID: 0}
@@ -287,7 +305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LeftTextElement>k__BackingField: {fileID: 5569702018973095470}
+  <YearsTextElement>k__BackingField: {fileID: 3749440691717693025}
   <TimerObject>k__BackingField: {fileID: 6506287634116720046}
+  <YearsObject>k__BackingField: {fileID: 9026703447306226881}
   <AdditionalTimeTextElement>k__BackingField: {fileID: 4694359501831334510}
   <AdditionalTimeObject>k__BackingField: {fileID: 1843351090826394488}
   <AdditionalTimeVisibilityInSeconds>k__BackingField: 5
