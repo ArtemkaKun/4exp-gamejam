@@ -27,6 +27,7 @@ namespace TimerSystem
 		public void IncreaseLeftTime (int additionalSeconds)
 		{
 			LeftTime += additionalSeconds;
+			View.ShowAdditionalTimeText(additionalSeconds).Forget();
 		}
 
 		private void Awake ()
