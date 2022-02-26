@@ -551,6 +551,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &761614237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4457859253132530746, guid: 39a91f1af65e2da418e7a5795d737848,
+    type: 3}
+  m_PrefabInstance: {fileID: 4457859252480235645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170e3f38be674c5d835ff0aebca3d12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1250252793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1064,6 +1076,11 @@ PrefabInstance:
       propertyPath: <Timer>k__BackingField
       value: 
       objectReference: {fileID: 528661068}
+    - target: {fileID: 3874425557716588748, guid: fa9510cce62d73549bf680133db56483,
+        type: 3}
+      propertyPath: <Inventory>k__BackingField
+      value: 
+      objectReference: {fileID: 761614237}
     - target: {fileID: 3874425557716588749, guid: fa9510cce62d73549bf680133db56483,
         type: 3}
       propertyPath: <SpawnPoint>k__BackingField
