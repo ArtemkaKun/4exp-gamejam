@@ -47,3 +47,5 @@ MonoBehaviour:
   <TimeInSeconds>k__BackingField: 60
   <StepInSeconds>k__BackingField: 1
   <View>k__BackingField: {fileID: 0}
+  <InitialNumberOfYears>k__BackingField: 18
+  <SecondsPerYear>k__BackingField: 5
