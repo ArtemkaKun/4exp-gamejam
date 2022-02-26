@@ -1,3 +1,4 @@
+using InventorySystem;
 using TimerSystem;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ namespace RoundsSystem
 		private PlayerLifeManager PlayerLifeManager { get; set; }
 		[field: SerializeField]
 		private GameObject RoundEndedCanvas { get; set; }
-		
+		[field: SerializeField]
+		private InventoryManager Inventory { get; set; }
+
 		private uint RoundsCounter { get; set; }
 
 		public void StartRound ()
@@ -34,6 +37,7 @@ namespace RoundsSystem
 			Cursor.lockState = CursorLockMode.None;
 			RoundEndedCanvas.SetActive(true);
 			PlayerLifeManager.KillPlayer();
+			Inventory.RemoveAllItems();
 		}
 	}
 }
