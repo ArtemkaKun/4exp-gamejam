@@ -15,11 +15,18 @@ namespace TimerSystem
 		private int StepInSeconds { get; set; }
 		[field: SerializeField]
 		private TimerView View { get; set; }
+		
+		private int LeftTime { get; set; }
 
 		[Button]
 		public void StartTimer ()
 		{
 			TimerProcess().Forget();
+		}
+
+		public void IncreaseLeftTime (int additionalSeconds)
+		{
+			LeftTime += additionalSeconds;
 		}
 
 		private void Awake ()
@@ -29,15 +36,15 @@ namespace TimerSystem
 
 		private async UniTaskVoid TimerProcess ()
 		{
-			int leftTime = TimeInSeconds;
-			View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+			LeftTime = TimeInSeconds;
+			View.SetLeftTime(TimeSpan.FromSeconds(LeftTime));
 			View.ChangeTimerTextVisibility(true);
 
-			while (leftTime > 0)
+			while (LeftTime > 0)
 			{
 				await UniTask.Delay(TimeSpan.FromSeconds(StepInSeconds));
-				leftTime -= StepInSeconds;
-				View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+				LeftTime -= StepInSeconds;
+				View.SetLeftTime(TimeSpan.FromSeconds(LeftTime));
 			}
 
 			View.SetLeftTime(TimeSpan.Zero);
