@@ -40,8 +40,11 @@ public class CameraController : MonoBehaviour
                 {
                     CurrentInteractableObject = CachedHit.transform.GetComponent<InteractableObject>();
 
-                    CurrentInteractableObject.OnInteract.Invoke();
-                }
+					if (CurrentInteractableObject != null)
+					{
+						CurrentInteractableObject.OnInteract.Invoke();
+					}
+				}
             }
         }
     }
