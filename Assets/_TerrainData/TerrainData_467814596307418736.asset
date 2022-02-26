@@ -1,28 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7718852263075241821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a04edb346a8b34c84035bf9a24b795, type: 3}
-  m_Name: Rendering
-  m_EditorClassIdentifier: 
-  terrainData: {fileID: 11400000}
-  castShadow: 1
-  receiveShadow: 1
-  drawTrees: 1
-  drawGrasses: 1
-  enableInstancing: 1
-  billboardStart: 100
-  treeDistance: 200
-  grassDistance: 100
-  grassFadeStart: 0.75
---- !u!28 &-6575791582332710822
+--- !u!28 &-8917011129591887366
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,6 +47,28 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!114 &-7718852263075241821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a04edb346a8b34c84035bf9a24b795, type: 3}
+  m_Name: Rendering
+  m_EditorClassIdentifier: 
+  terrainData: {fileID: 11400000}
+  castShadow: 1
+  receiveShadow: 1
+  drawTrees: 1
+  drawGrasses: 1
+  enableInstancing: 1
+  billboardStart: 100
+  treeDistance: 200
+  grassDistance: 100
+  grassFadeStart: 0.75
 --- !u!114 &-5314796413136803968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2962,26 +2962,7 @@ MonoBehaviour:
   terrainData: {fileID: 11400000}
   maskMapResolution: 256
   maskMap: {fileID: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be8aeadd554b3c488c79555c2c46709, type: 3}
-  m_Name: TerrainData_467814596307418736
-  m_EditorClassIdentifier: 
-  id: 467814596307418736
-  geometry: {fileID: -3460867734689700471}
-  shading: {fileID: 4523362849797415548}
-  rendering: {fileID: -7718852263075241821}
-  foliage: {fileID: -5314796413136803968}
-  mask: {fileID: -260841183726603712}
-  geometryData: {fileID: 11400000, guid: 5e6f0f57f9679394aa92321994e9871c, type: 2}
---- !u!28 &12885584975030437
+--- !u!28 &-169849859370530157
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3028,7 +3009,7 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!28 &1853720767665655473
+--- !u!28 &-25711137526097289
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3075,6 +3056,25 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be8aeadd554b3c488c79555c2c46709, type: 3}
+  m_Name: TerrainData_467814596307418736
+  m_EditorClassIdentifier: 
+  id: 467814596307418736
+  geometry: {fileID: -3460867734689700471}
+  shading: {fileID: 4523362849797415548}
+  rendering: {fileID: -7718852263075241821}
+  foliage: {fileID: -5314796413136803968}
+  mask: {fileID: -260841183726603712}
+  geometryData: {fileID: 11400000, guid: 5e6f0f57f9679394aa92321994e9871c, type: 2}
 --- !u!28 &2994240711256052418
 Texture2D:
   m_ObjectHideFlags: 0
@@ -3247,9 +3247,9 @@ MonoBehaviour:
   colorByNormalPropertyName: _ColorByNormal
   colorBlendPropertyName: _ColorBlend
   dimensionPropertyName: _Dimension
-  colorByHeightMap: {fileID: 12885584975030437}
-  colorByNormalMap: {fileID: 1853720767665655473}
-  colorBlendMap: {fileID: -6575791582332710822}
+  colorByHeightMap: {fileID: -169849859370530157}
+  colorByNormalMap: {fileID: -25711137526097289}
+  colorBlendMap: {fileID: -8917011129591887366}
   splats: {fileID: 11400000, guid: a3cfde07cd0a9f4488f10294d27e360e, type: 2}
   splatControlResolution: 512
   splatControls: []
