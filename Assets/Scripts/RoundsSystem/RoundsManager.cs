@@ -1,5 +1,6 @@
 using InventorySystem;
 using TimerSystem;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 namespace RoundsSystem
@@ -14,8 +15,10 @@ namespace RoundsSystem
 		private GameObject RoundEndedCanvas { get; set; }
 		[field: SerializeField]
 		private InventoryManager Inventory { get; set; }
+		[field: SerializeField]
+		private CharactersHistoryController CharactersHistory { get; set; }
 
-		private uint RoundsCounter { get; set; }
+		[field: SerializeField] private IntVariable RoundsCounter { get; set; }
 
 		public void StartRound ()
 		{
@@ -23,7 +26,7 @@ namespace RoundsSystem
 			PlayerLifeManager.ChangePlayerActiveStatus(true);
 			Cursor.lockState = CursorLockMode.Locked;
 			Timer.StartTimer();
-			RoundsCounter += 1;
+			RoundsCounter.Value += 1;
 		}
 
 		private void Start ()
@@ -32,12 +35,12 @@ namespace RoundsSystem
 			StartRound();
 		}
 
-		private void FinishRound ()
+		private void FinishRound (float numberOfYears)
 		{
 			Cursor.lockState = CursorLockMode.None;
 			RoundEndedCanvas.SetActive(true);
 			PlayerLifeManager.ChangePlayerActiveStatus(false);
-			Inventory.RemoveAllItems();
+			CharactersHistory.AddNewCharacter(numberOfYears);
 		}
 	}
 }
