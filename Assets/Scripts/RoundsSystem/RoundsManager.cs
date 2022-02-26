@@ -11,6 +11,8 @@ namespace RoundsSystem
 		private PlayerLifeManager PlayerLifeManager { get; set; }
 		[field: SerializeField]
 		private GameObject RoundEndedCanvas { get; set; }
+		
+		private uint RoundsCounter { get; set; }
 
 		public void StartRound ()
 		{
@@ -18,6 +20,7 @@ namespace RoundsSystem
 			PlayerLifeManager.SpawnPlayer();
 			Cursor.lockState = CursorLockMode.Locked;
 			Timer.StartTimer();
+			RoundsCounter += 1;
 		}
 
 		private void Awake ()
