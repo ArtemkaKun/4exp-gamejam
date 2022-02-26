@@ -5,44 +5,55 @@ using UnityEngine;
 
 namespace TimerSystem
 {
-	public class Timer : MonoBehaviour
-	{
-		public event Action OnTimerEnd;
-		
-		[field: SerializeField]
-		private int TimeInSeconds { get; set; }
-		[field: SerializeField]
-		private int StepInSeconds { get; set; }
-		[field: SerializeField]
-		private TimerView View { get; set; }
+    public class Timer : MonoBehaviour
+    {
+        public event Action OnTimerEnd;
 
-		[Button]
-		public void StartTimer ()
-		{
-			TimerProcess().Forget();
-		}
+        [field: SerializeField]
+        private int TimeInSeconds { get; set; }
+        [field: SerializeField]
+        private int StepInSeconds { get; set; }
+        [field: SerializeField]
+        private TimerView View { get; set; }
+        [field: SerializeField]
+        private float InitialNumberOfYears { get; set; }
+        [field: SerializeField]
+        private float SecondsPerYear { get; set; }
 
-		private void Awake ()
-		{
-			View.SetLeftTime(TimeSpan.FromSeconds(TimeInSeconds));
-		}
+        [Button]
+        public void StartTimer()
+        {
+            TimerProcess().Forget();
+        }
 
-		private async UniTaskVoid TimerProcess ()
-		{
-			int leftTime = TimeInSeconds;
-			View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
-			View.ChangeTimerTextVisibility(true);
+        private void Awake()
+        {
+            View.SetLeftTime(TimeSpan.FromSeconds(TimeInSeconds));
+        }
 
-			while (leftTime > 0)
-			{
-				await UniTask.Delay(TimeSpan.FromSeconds(StepInSeconds));
-				leftTime -= StepInSeconds;
-				View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
-			}
+        private async UniTaskVoid TimerProcess()
+        {
+            int leftTime = TimeInSeconds;
+            View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+            View.SetYears(CountYears(leftTime));
+            View.ChangeTimerTextVisibility(true);
 
-			View.SetLeftTime(TimeSpan.Zero);
-			OnTimerEnd?.Invoke();
-			View.ChangeTimerTextVisibility(false);
-		}
-	}
+            while (leftTime > 0)
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(StepInSeconds));
+                leftTime -= StepInSeconds;
+                View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+            }
+
+            View.SetLeftTime(TimeSpan.Zero);
+            View.SetYears(InitialNumberOfYears);
+            OnTimerEnd?.Invoke();
+            View.ChangeTimerTextVisibility(false);
+        }
+
+        private float CountYears(int leftTime)
+        {
+            return InitialNumberOfYears + Mathf.Floor((TimeInSeconds - leftTime) / SecondsPerYear);
+        }
+    }
 }

@@ -13,6 +13,8 @@ public class InteractableObject : Interactable
     [field: SerializeField]
     private List<GameObject> InteractableObjectsToSpawnOnPresence { get; set; }
 
+    private bool WasOnPresenceInvoked { get; set; }
+
     protected virtual void OnEnable()
     {
         OnInteract.AddListener(OnInteractEventHandler);
@@ -33,8 +35,12 @@ public class InteractableObject : Interactable
 
     private void OnPresenceEventHandler()
     {
-        PlayOpenAnimation();
-        SpawnObjectsOnPresence();
+        if (WasOnPresenceInvoked == false)
+        {
+            PlayOpenAnimation();
+            SpawnObjectsOnPresence();
+            WasOnPresenceInvoked = true;
+        }
     }
 
     private void SpawnObjectsOnPresence()
