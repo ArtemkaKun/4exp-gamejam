@@ -50,6 +50,9 @@ MonoBehaviour:
   <PlayerLifeManager>k__BackingField: {fileID: 3874425557716588749}
   <RoundEndedCanvas>k__BackingField: {fileID: 3226567240024822298}
   <Inventory>k__BackingField: {fileID: 0}
+  <CharactersHistory>k__BackingField: {fileID: 0}
+  <RoundsCounter>k__BackingField: {fileID: 11400000, guid: fa4c91683b3c26e4191856199fa53894,
+    type: 2}
 --- !u!114 &3874425557716588749
 MonoBehaviour:
   m_ObjectHideFlags: 0

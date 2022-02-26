@@ -1,5 +1,6 @@
 using InventorySystem;
 using TimerSystem;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 namespace RoundsSystem
@@ -17,7 +18,7 @@ namespace RoundsSystem
 		[field: SerializeField]
 		private CharactersHistoryController CharactersHistory { get; set; }
 
-		private uint RoundsCounter { get; set; }
+		[field: SerializeField] private IntVariable RoundsCounter { get; set; }
 
 		public void StartRound ()
 		{
@@ -25,7 +26,7 @@ namespace RoundsSystem
 			PlayerLifeManager.ChangePlayerActiveStatus(true);
 			Cursor.lockState = CursorLockMode.Locked;
 			Timer.StartTimer();
-			RoundsCounter += 1;
+			RoundsCounter.Value += 1;
 		}
 
 		private void Start ()
