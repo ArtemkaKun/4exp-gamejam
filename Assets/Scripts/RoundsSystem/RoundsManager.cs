@@ -20,7 +20,7 @@ namespace RoundsSystem
 		public void StartRound ()
 		{
 			RoundEndedCanvas.SetActive(false);
-			PlayerLifeManager.SpawnPlayer();
+			PlayerLifeManager.ChangePlayerActiveStatus(true);
 			Cursor.lockState = CursorLockMode.Locked;
 			Timer.StartTimer();
 			RoundsCounter += 1;
@@ -36,7 +36,7 @@ namespace RoundsSystem
 		{
 			Cursor.lockState = CursorLockMode.None;
 			RoundEndedCanvas.SetActive(true);
-			PlayerLifeManager.KillPlayer();
+			PlayerLifeManager.ChangePlayerActiveStatus(false);
 			Inventory.RemoveAllItems();
 		}
 	}
