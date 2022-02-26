@@ -9,21 +9,26 @@ namespace RoundsSystem
 		private Timer Timer { get; set; }
 		[field: SerializeField]
 		private PlayerLifeManager PlayerLifeManager { get; set; }
+		[field: SerializeField]
+		private GameObject RoundEndedCanvas { get; set; }
+
+		public void StartRound ()
+		{
+			RoundEndedCanvas.SetActive(false);
+			PlayerLifeManager.SpawnPlayer();
+			Timer.StartTimer();
+		}
 
 		private void Awake ()
 		{
-			StartRound();
-		}
-		
-		private void StartRound ()
-		{
-			PlayerLifeManager.SpawnPlayer();
 			Timer.OnTimerEnd += FinishRound;
-			Timer.StartTimer();
+			StartRound();
 		}
 
 		private void FinishRound ()
 		{
+			Cursor.lockState = CursorLockMode.None;
+			RoundEndedCanvas.SetActive(true);
 			PlayerLifeManager.KillPlayer();
 		}
 	}
