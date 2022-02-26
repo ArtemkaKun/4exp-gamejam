@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1500899924992442, guid: a19f2e49529f1ef4d903f3b663ce7893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4859018097767518, guid: a19f2e49529f1ef4d903f3b663ce7893, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -120,3 +124,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7781495025662530946}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7780031509830497336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1500899924992442, guid: a19f2e49529f1ef4d903f3b663ce7893,
+    type: 3}
+  m_PrefabInstance: {fileID: 7781495025662530946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1055954100333748387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780031509830497336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d437e978f998fae458ac0236f7d80806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OnInteract>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <InteractableObjectsToSpawnOnInteract>k__BackingField: []
+  <RequiredItems>k__BackingField:
+  - Axe
+  <Inventory>k__BackingField: {fileID: 0}

@@ -8,7 +8,7 @@ namespace InventorySystem
         [field: SerializeField]
         private InventoryView InventoryView { get; set; }
 
-        private List<InventoryObject> Items { get; } = new List<InventoryObject>();
+        public List<InventoryObject> Items { get; private set; } = new List<InventoryObject>();
 
         public void AddItem(InventoryObject item)
         {
