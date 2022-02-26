@@ -40,7 +40,8 @@ namespace TimerSystem
 
 		public async UniTaskVoid ShowAdditionalTimeText (int additionalTimeValue)
 		{
-			AdditionalTimeTextElement.text = $"+{additionalTimeValue}";
+			AdditionalTimeTextElement.text = additionalTimeValue > 0 ? $"+{additionalTimeValue}" : $"-{additionalTimeValue}";
+			AdditionalTimeTextElement.color = additionalTimeValue > 0 ? Color.green : Color.red;
 			AdditionalTimeObject.SetActive(true);
 			await UniTask.Delay(TimeSpan.FromSeconds(AdditionalTimeVisibilityInSeconds));
 			AdditionalTimeObject.SetActive(false);
