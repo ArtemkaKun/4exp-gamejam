@@ -43,6 +43,7 @@ namespace TimerSystem
                 await UniTask.Delay(TimeSpan.FromSeconds(StepInSeconds));
                 leftTime -= StepInSeconds;
                 View.SetLeftTime(TimeSpan.FromSeconds(leftTime));
+                View.SetYears(CountYears(leftTime));
             }
 
             View.SetLeftTime(TimeSpan.Zero);

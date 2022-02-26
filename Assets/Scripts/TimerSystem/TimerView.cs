@@ -28,7 +28,7 @@ namespace TimerSystem
 
         public void SetYears(float years)
         {
-            LeftTextElement.text = $"{years} yo";
+            LeftTextElement.text = $"Age: {years}";
         }
     }
 }
