@@ -48,8 +48,11 @@ public class InteractableObject : MonoBehaviour
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnInteract)
         {
-            interactable.SetActive(true);
-        }
+			if (interactable != null)
+			{
+				interactable.SetActive(true);
+			}
+		}
     }
 
 	private void TryAddToInventory ()
@@ -64,8 +67,11 @@ public class InteractableObject : MonoBehaviour
     {
         foreach (GameObject interactable in InteractableObjectsToSpawnOnPresence)
         {
-            interactable.SetActive(true);
-        }
+			if (interactable != null)
+			{
+				interactable.SetActive(true);
+			}
+		}
     }
 
     private void DestroyThisObject()
