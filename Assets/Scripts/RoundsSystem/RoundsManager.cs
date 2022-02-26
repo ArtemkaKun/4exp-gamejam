@@ -16,6 +16,7 @@ namespace RoundsSystem
 		{
 			RoundEndedCanvas.SetActive(false);
 			PlayerLifeManager.SpawnPlayer();
+			Cursor.lockState = CursorLockMode.Locked;
 			Timer.StartTimer();
 		}
 
