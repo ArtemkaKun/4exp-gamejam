@@ -7,6 +7,8 @@ namespace TimerSystem
 {
 	public class Timer : MonoBehaviour
 	{
+		public event Action OnTimerEnd;
+		
 		[field: SerializeField]
 		private int TimeInSeconds { get; set; }
 		[field: SerializeField]
@@ -37,6 +39,7 @@ namespace TimerSystem
 			}
 
 			View.SetLeftTime(TimeSpan.Zero);
+			OnTimerEnd?.Invoke();
 		}
 	}
 }
