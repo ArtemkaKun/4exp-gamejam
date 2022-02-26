@@ -38,14 +38,13 @@ public class CameraController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0) == true)
                 {
-                    Debug.Log(CachedHit.transform.gameObject.name);
                     CurrentInteractableObject = CachedHit.transform.GetComponent<Interactable>();
 
-					if (CurrentInteractableObject != null)
-					{
-						CurrentInteractableObject.OnInteract.Invoke();
-					}
-				}
+                    if (CurrentInteractableObject != null)
+                    {
+                        CurrentInteractableObject.OnInteract.Invoke();
+                    }
+                }
             }
         }
     }

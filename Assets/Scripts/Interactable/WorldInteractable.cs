@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using InventorySystem;
 using System.Linq;
+using HighlightPlus;
 
 public class WorldInteractable : Interactable
 {
@@ -11,10 +12,20 @@ public class WorldInteractable : Interactable
     private List<string> RequiredItems { get; set; }
     [field: SerializeField]
     private InventoryManager Inventory { get; set; }
+    [field: SerializeField]
+    private HighlightEffect Highlight { get; set; }
 
     protected virtual void OnEnable()
     {
         OnInteract.AddListener(OnInteractEventHandler);
+    }
+
+    protected virtual void Update()
+    {
+        if (Highlight.highlighted == true)
+        {
+            Highlight.outlineColor = CheckPlayersHasRequiredItems() == true ? Color.green : Color.red;
+        }
     }
 
     protected virtual void OnDisable()
