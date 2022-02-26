@@ -14,6 +14,14 @@ public class CameraController : MonoBehaviour
     private RaycastHit CachedHit;
     private InteractableObject CurrentInteractableObject;
 
+    protected virtual void OnTriggerEnter(Collider collider)
+    {
+        if (IsObjectInteractable(collider.gameObject.layer) == true)
+        {
+            collider.GetComponent<InteractableObject>().OnPresence.Invoke();
+        }
+    }
+
     protected virtual void Update()
     {
         GetInteractiveObject();
@@ -40,6 +48,11 @@ public class CameraController : MonoBehaviour
 
     private bool IsObjectInteractable(RaycastHit hit)
     {
-        return hit.transform.gameObject.layer == (int)Mathf.Log(InteractiveObjectsLayer.value, 2);
+        return hit.collider.transform.gameObject.layer == (int)Mathf.Log(InteractiveObjectsLayer.value, 2);
+    }
+
+    private bool IsObjectInteractable(int layer)
+    {
+        return layer == (int)Mathf.Log(InteractiveObjectsLayer.value, 2);
     }
 }
