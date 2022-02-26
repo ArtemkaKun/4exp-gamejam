@@ -21,6 +21,7 @@ namespace TimerSystem
 		private float SecondsPerYear { get; set; }
 
 		private int LeftTime { get; set; }
+		private int ActualMaxTimeInSeconds { get; set; }
 
 		[Button]
 		public void StartTimer ()
@@ -31,17 +32,19 @@ namespace TimerSystem
 		public void IncreaseLeftTime (int additionalSeconds)
 		{
 			LeftTime += additionalSeconds;
+			ActualMaxTimeInSeconds += additionalSeconds;
 			View.ShowAdditionalTimeText(additionalSeconds).Forget();
 		}
 
 		private void Awake ()
 		{
+			ActualMaxTimeInSeconds = TimeInSeconds;
 			View.SetLeftTime(TimeSpan.FromSeconds(TimeInSeconds));
 		}
 
 		private async UniTaskVoid TimerProcess ()
 		{
-			LeftTime = TimeInSeconds;
+			LeftTime = ActualMaxTimeInSeconds;
 			View.SetLeftTime(TimeSpan.FromSeconds(LeftTime));
 			View.SetYears(CountYears(LeftTime));
 			View.ChangeTimerTextVisibility(true);
@@ -62,7 +65,7 @@ namespace TimerSystem
 
 		private float CountYears (int leftTime)
 		{
-			return InitialNumberOfYears + Mathf.Floor((TimeInSeconds - leftTime) / SecondsPerYear);
+			return InitialNumberOfYears + Mathf.Floor((ActualMaxTimeInSeconds - leftTime) / SecondsPerYear);
 		}
 	}
 }
