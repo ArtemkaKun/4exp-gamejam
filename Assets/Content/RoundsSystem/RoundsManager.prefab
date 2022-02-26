@@ -49,6 +49,7 @@ MonoBehaviour:
   <Timer>k__BackingField: {fileID: 0}
   <PlayerLifeManager>k__BackingField: {fileID: 3874425557716588749}
   <RoundEndedCanvas>k__BackingField: {fileID: 3226567240024822298}
+  <Inventory>k__BackingField: {fileID: 0}
 --- !u!114 &3874425557716588749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720d0034b16a4a3e816b5d33a057973e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerPrefab>k__BackingField: {fileID: 8384235244395292621, guid: 75430fe8f761eef49ad5dce35700675f,
-    type: 3}
+  <PlayerObject>k__BackingField: {fileID: 0}
+  <PlayerObjectTransform>k__BackingField: {fileID: 0}
   <SpawnPoint>k__BackingField: {fileID: 0}
 --- !u!1001 &3175297055773724053
 PrefabInstance:
@@ -180,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundEndedCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 60792092391841679, guid: 94a2558e1f359b440ab8998837dc6c5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4843442946850828753, guid: 94a2558e1f359b440ab8998837dc6c5d,
         type: 3}
