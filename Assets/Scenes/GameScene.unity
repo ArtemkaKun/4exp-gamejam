@@ -651,6 +651,11 @@ PrefabInstance:
       propertyPath: <Inventory>k__BackingField
       value: 
       objectReference: {fileID: 761614237}
+    - target: {fileID: 6849670564633372919, guid: cefcaf0dc3c709845aea06f81920e72c,
+        type: 3}
+      propertyPath: raycastCamera
+      value: 
+      objectReference: {fileID: 282514530}
     - target: {fileID: 7776642604824338908, guid: cefcaf0dc3c709845aea06f81920e72c,
         type: 3}
       propertyPath: m_RootOrder

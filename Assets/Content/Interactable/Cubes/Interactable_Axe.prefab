@@ -67,8 +67,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseAxe
       objectReference: {fileID: 0}
+    - target: {fileID: 9141858633022540035, guid: 03183839406b9d44098d005b254342da,
+        type: 3}
+      propertyPath: <InventoryObject>k__BackingField
+      value: 
+      objectReference: {fileID: 3852625333848647923}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03183839406b9d44098d005b254342da, type: 3}
+--- !u!114 &3852625333848647923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1669777980074104434, guid: 03183839406b9d44098d005b254342da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2475704833486503553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c8542f5c97494b862f74ac1ce940de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6666769528213190530 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9141858633022540035, guid: 03183839406b9d44098d005b254342da,
@@ -181,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 3142250623124567325, guid: 2bffdbd2691027e49871a485bd558528,
         type: 3}
       propertyPath: <OnInteract>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TryAddToInventory
+      value: AddToInventory
       objectReference: {fileID: 0}
     - target: {fileID: 3142250623124567325, guid: 2bffdbd2691027e49871a485bd558528,
         type: 3}
