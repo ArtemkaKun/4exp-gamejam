@@ -94,12 +94,12 @@ MonoBehaviour:
     showTerrainMask: 0
   wizardTools:
     lightingModel: 0
-    texturingModel: 2
+    texturingModel: 0
     splatsModel: 1
     origin: {x: 0, y: 0, z: 0}
-    tileSize: {x: 500, y: 500, z: 500}
-    tileCountX: 3
-    tileCountZ: 3
+    tileSize: {x: 1000, y: 600, z: 1000}
+    tileCountX: 1
+    tileCountZ: 1
     groupId: 0
     terrainNamePrefix: Terrain
     dataDirectory: Assets/_TerrainData
